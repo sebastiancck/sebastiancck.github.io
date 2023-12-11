@@ -31,23 +31,24 @@
             <h1 class="display-4 text-center">RegistrApp</h1>
             <p class="lead text-center">¡Descarga la App para registrar tu asistencia de manera rápida!</p>
             <hr class="my-4">
-            <div class="row">
-                <div class="col-md-6 mb-3 mb-md-0 text-center">
-                    <h1 class="display-6" >Opcion 1</h1>
-                    <p class="lead text-center">Descarga la aplicacion presionando el boton</p>
+            <div class="row justify-content-center">
+                <div id="downloadButtonSection" style="display: none;" class="col-md-6 mb-3 mb-md-0 text-center">
+                    <p class="lead">Descarga la aplicación presionando el botón</p>
                     <a href="app.apk" download="app">
                         <button id="botonDescarga" class="btn btn-primary btn-lg">Descargar el APK</button>
                     </a>
                 </div>
-                <div class="col-md-6">
-                    <h1 class="display-6 text-center" >Opcion 2</h1>
-                    <div class="text-center" id="qrcode"></div>
-                    <p class="lead text-center">Escanea el Codigo QR para descargar la App en tu Celular</p>
+                <div id="qrCodeSection" class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center">
+                    <div class="mx-auto">
+                        <div id="qrcode"></div>
+                        <br>
+                        <p class="lead highlight-text">Escanea el Código QR para descargar la App en tu Celular</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Footer de la pagina -->
     <footer class="text-center py-4 text-white">
         <p>RegistrApp 2023</p>
