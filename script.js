@@ -1,31 +1,28 @@
 window.onload = function() {
-  var urlAPK = "app.apk"; 
-  var qrCodeDiv = document.getElementById("qrcode");
+  // variables
+  var urlAPK = "sebastiancck.github.io/app.apk"; 
+  var QRCodigoDiv = document.getElementById("QRCodigo");
+  var QRTexto = document.getElementById("QRMsg");
+  var userAgent = navigator.userAgent;
 
-  var img = document.createElement('img');
+  // identificador de dispositivo 
+  var CelularSi = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
 
-  img.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(urlAPK);
-  img.width = 200;
-  img.height = 200;
-
-  qrCodeDiv.appendChild(img);
-
-  // Obtener el User-Agent del navegador
-  const userAgent = navigator.userAgent;
-
-  // Verificar si es un dispositivo móvil
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-
-  // Obtener referencias a los elementos
-  const qrCodeSection = document.getElementById('qrCodeSection');
-  const downloadButtonSection = document.getElementById('downloadButtonSection');
-
-  // Mostrar u ocultar los elementos basados en el tipo de dispositivo
-  if (isMobile) {
-      qrCodeSection.style.display = 'none'; // Ocultar el QR en dispositivos móviles
-      downloadButtonSection.style.display = 'block'; // Mostrar el botón de descarga en dispositivos móviles
+  // verificar si esta en celular o pc para mostrar: qr o boton de descarga
+  if (CelularSi) {
+      document.getElementById("ApartadoBotonDescargar").style.display = "block";
+      document.getElementById("ApartadoQRDescargar").style.display = "none";
+      QRTexto.style.display = "none"; 
   } else {
-      qrCodeSection.style.display = 'block'; // Mostrar el QR en PCs
-      downloadButtonSection.style.display = 'none'; // Ocultar el botón de descarga en PCs
+      document.getElementById("ApartadoBotonDescargar").style.display = "none";
+      document.getElementById("ApartadoQRDescargar").style.display = "block";
+
+      // creacion de la imagen del qr
+      var img = document.createElement('img');
+      img.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(urlAPK);
+      img.width = 200;
+      img.height = 200;
+      QRCodigoDiv.appendChild(img);
   }
 };
+
